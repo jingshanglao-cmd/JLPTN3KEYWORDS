@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f6fc">
+  <title>N3 Kotoba — High-frequency vocabulary</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="N3 Kotoba home">
+        <span class="brand-mark">語</span>
+        <span><strong>N3 Kotoba</strong><small>高頻度 vocabulary</small></span>
+      </a>
+      <nav class="tabs" aria-label="Study sections">
+        <button class="tab active" data-view="study">Study</button>
+        <button class="tab" data-view="test">Test</button>
+        <button class="tab" data-view="words">Words</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">JLPT N3 · Complete 16-year collection</p>
+          <h1>Small sessions.<br><em>Strong recall.</em></h1>
+        </div>
+        <div class="stats" aria-label="Progress summary">
+          <div><strong id="totalStat">1015</strong><span>PDF vocabulary</span></div>
+          <div><strong id="knownStat">0</strong><span>remembered</span></div>
+          <div><strong id="reviewStat">0</strong><span>to review</span></div>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Study filters">
+        <label>Frequency
+          <select id="frequencyFilter">
+            <option value="all">All · 1–8 appearances</option>
+            <option value="gte5">5+ · Core words</option>
+            <option value="gte3">3+ · High frequency</option>
+            <option value="eq2">Exactly 2</option>
+            <option value="eq1">Exactly 1</option>
+          </select>
+        </label>
+        <label>Deck
+          <select id="deckFilter">
+            <option value="all">All words</option>
+            <option value="unseen">Not studied</option>
+            <option value="review">Needs review</option>
+            <option value="known">Remembered</option>
+          </select>
+        </label>
+        <button class="shuffle" id="shuffleButton" type="button">↝ Shuffle deck</button>
+      </section>
+
+      <section id="studyView" class="view active">
+        <div class="session-line">
+          <span id="studyProgress">Card 1 of 1015</span>
+          <div class="progress-track"><span id="progressFill"></span></div>
+        </div>
+        <article class="flashcard" id="flashcard">
+          <div class="frequency-badge" id="frequencyBadge">8× appeared</div>
+          <p class="prompt">Do you remember this word?</p>
+          <h2 id="cardWord">盛ん</h2>
+          <p class="reading concealed" id="cardReading">さかん</p>
+          <div class="answer concealed" id="cardAnswer">
+            <span>Meaning</span>
+            <strong>盛行；旺盛；兴盛；繁盛；热烈</strong>
+          </div>
+          <button class="reveal" id="revealButton" type="button">Reveal answer <kbd>Space</kbd></button>
+          <div class="grade-actions hidden" id="gradeActions">
+            <button class="again" id="againButton" type="button"><span>↺</span> Review again <kbd>1</kbd></button>
+            <button class="remember" id="rememberButton" type="button"><span>✓</span> I remembered <kbd>2</kbd></button>
+          </div>
+        </article>
+        <p class="shortcut-note">Use the keyboard for a quick daily rhythm.</p>
+      </section>
+
+      <section id="testView" class="view">
+        <div class="test-head">
+          <div><p class="eyebrow">Typed recall</p><h2>Write the Japanese word</h2></div>
+          <strong id="testScore">0 / 0 correct</strong>
+        </div>
+        <article class="test-card">
+          <span class="meaning-label">Meaning</span>
+          <h3 id="testMeaning">—</h3>
+          <label for="testInput">Your answer</label>
+          <div class="answer-row">
+            <input id="testInput" lang="ja" autocomplete="off" placeholder="日本語で入力…">
+            <button id="checkButton" type="button">Check</button>
+          </div>
+          <p id="testFeedback" class="feedback" aria-live="polite"></p>
+          <button id="nextTestButton" class="next-test hidden" type="button">Next word →</button>
+        </article>
+      </section>
+
+      <section id="wordsView" class="view">
+        <div class="word-list-head">
+          <div><p class="eyebrow">Complete summary</p><h2>All PDF vocabulary</h2></div>
+          <label class="search"><span>⌕</span><input id="searchInput" placeholder="Search word, reading, or meaning"></label>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Word</th><th>Reading</th><th>Meaning</th><th>Frequency</th><th>Status</th></tr></thead>
+            <tbody id="wordTable"></tbody>
+          </table>
+          <p id="emptyTable" class="empty hidden">No words match these filters.</p>
+        </div>
+      </section>
+    </main>
+    <footer>All 1,015 words from your 16-year JLPT N3 collection · Progress stays on this device</footer>
+  </div>
+  <script src="words.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
